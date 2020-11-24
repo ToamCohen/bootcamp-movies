@@ -4,29 +4,40 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="Style.css">
+		<link rel="stylesheet" href="Style.css" />
 	</head>
 	<body>
 		<input type="text" id="movie-title" placeholder="title" />
 		<button id="search-by-title">Search</button>
-		<div id="movies-container" ></div>
+		<div id="movies-container"></div>
 		<!-- <script>============</script> -->
 		<script id="movies-template" type="text/x-handlebars-template">
 			{{#each movie}}
-				<div id={{imdbID}}  class="warper">
+				<div class="warper">
 					<header class="title-container">
 						<h3>
 							{{Title}}
 						</h3>
 					</header>
 					<main class="main-content">
-						<img src={{Poster}} alt="" />
+						<img class="poster" src={{Poster}} alt="" />
 					</main>
 					<nav class="buttom-nav">
 						{{Year}}
 					</nav>
+					<div id={{imdbID}} class="rating-container"></div>
 				</div>
 			{{/each}}
+		</script>
+
+		<script id="rating-template" type="text/x-handlebars-template">
+			<ul>
+				{{#each Ratings}}
+					<li>
+						{{this}}
+					</li>
+				{{/each}}
+			</ul>
 		</script>
 
 		<!-- <script>============</script> -->
